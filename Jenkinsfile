@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello World') {
+        stage('Print Environment') {
             steps {
-                echo 'Hello World, I come from an external Jenkinsfile'
+                echo 'Printing Environment Variables...'
+                echo 'printenv'
             }
         }
     }
