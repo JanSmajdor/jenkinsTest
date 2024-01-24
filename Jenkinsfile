@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Print Environment') {
+        stage('Print Environment Variables') {
             steps {
                 echo 'Printing Environment Variables...'
                 sh 'printenv'
