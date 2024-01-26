@@ -13,5 +13,10 @@ pipeline {
                 sh 'printenv'
             }
         }
+        stage('Environment Variable Test') {
+            steps {
+                echo "GIT BRANCH : ${env.GIT_BRANCH}"
+            }
+        }
     }
 }
