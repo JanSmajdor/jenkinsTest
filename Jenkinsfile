@@ -14,12 +14,6 @@ pipeline {
             }
         }
 
-        stage('Print Environment Variables available to this job') {
-            steps {
-                echo "env:  ${env.getEnvironment()}"
-            }
-        }
-
         stage('Environment Variable Test') {
             steps {
                 echo "GIT BRANCH : ${env.GIT_BRANCH}"
