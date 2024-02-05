@@ -14,11 +14,11 @@ pipeline {
             }
         }
 
-    stages {
         stage('Print Environment Variables available to this job') {
-            echo "env:  ${env.getEnvironment()}"
+            steps {
+                echo "env:  ${env.getEnvironment()}"
+            }
         }
-    }
 
         stage('Environment Variable Test') {
             steps {
