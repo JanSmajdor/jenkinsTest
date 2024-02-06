@@ -17,7 +17,7 @@ pipeline {
         stage('Webhook Payload') {
             steps {
                 script {
-                    def changes = currentBuild.changeSets
+                    def changes = currentBuild.changeSets[0]
                     echo "Changes ${changes}"
                 }
             }
