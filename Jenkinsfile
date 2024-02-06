@@ -14,13 +14,13 @@ pipeline {
             }
         }
 
-        stage('Webhook Payload') {
-            steps {
-                script {
-                    def changes = currentBuild.changeSets[0]
-                    echo "Changes ${changes}"
-                }
-            }
-        }
+        // stage('Webhook Payload') {
+        //     steps {
+        //         script {
+        //             echo "Printing Payload from GitHub Webhook..."
+        //             echo "$env.GITHUB_PAYLOAD"
+        //         }
+        //     }
+        // }
     }
 }
