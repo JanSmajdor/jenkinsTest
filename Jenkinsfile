@@ -17,14 +17,12 @@ pipeline {
         stage('Webhook Payload') {
             steps {
                 script {
-                    def payloadMap = readJSON text: payload
-                    if(env.payloadMap) {
-                        echo "Payload found in webhook request: "
-                        echo "${env.payloadMap}"
-                    }
-                    else{
-                        echo "Payload could NOT be found in webhook request."
-                    }
+                    def changes = currentBuild.changeSets
+                    for (changeSet in changes) {
+                        for (entry in changeSet) {
+                            def filePath = entry.path
+                            echo "Changed file: $filePath"
+                        }
                 }
             }
         }
