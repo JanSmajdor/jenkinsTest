@@ -24,6 +24,7 @@ pipeline {
                             echo "Changed file: $filePath"
                         }
                 }
+                }
             }
         }
     }
