@@ -14,9 +14,9 @@ pipeline {
             }
         }
 
-        stage('Environment Variable Test') {
+        stage('Workout Variables') {
             steps {
-                echo "GIT BRANCH : ${env.GIT_BRANCH}"
+                
             }
         }
     }
