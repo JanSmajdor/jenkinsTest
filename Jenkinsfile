@@ -17,8 +17,9 @@ pipeline {
         stage('Webhook Payload') {
             steps {
                 script {
+                    def filepath = env.WEBHOOK_FILEPATH[0]
                     // Use the parsed data
-                    echo "Parsed Payload: ${env.WEBHOOK_FILEPATH}"
+                    echo "Parsed Payload: ${filepath}"
                 }
             }
         }
