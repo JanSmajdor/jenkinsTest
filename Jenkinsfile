@@ -17,8 +17,14 @@ pipeline {
         stage('Webhook Payload') {
             steps {
                 script {
-                    echo "Printing Payload from GitHub Webhook..."
-                    echo "$env.WEBHOOK_"
+                    e// Access the variable
+                    def githubPayload = env.WEBHOOK_FILEPATH
+
+                    // Parse the JSON payload if it's in JSON format
+                    def webhook_filepath = readJSON text: githubPayload
+
+                    // Use the parsed data
+                    echo "Parsed Payload: ${webhook_filepath}"
                 }
             }
         }
