@@ -17,9 +17,10 @@ pipeline {
         stage('Webhook Payload') {
             steps {
                 script {
-                    if(env.payload) {
+                    def payloadMap = readJSON text: payload
+                    if(env.payloadMap) {
                         echo "Payload found in webhook request: "
-                        echo "${env.payload}"
+                        echo "${env.payloadMap}"
                     }
                     else{
                         echo "Payload could NOT be found in webhook request."
