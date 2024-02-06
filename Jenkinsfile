@@ -14,9 +14,17 @@ pipeline {
             }
         }
 
-        stage('Workout Variables') {
+        stage('Webhook Payload') {
             steps {
-                
+                script {
+                    if(env.payload) {
+                        echo "Payload found in webhook request: "
+                        echo "${env.payload}"
+                    }
+                    else{
+                        echo "Payload could NOT be found in webhook request."
+                    }
+                }
             }
         }
     }
