@@ -14,13 +14,13 @@ pipeline {
             }
         }
 
-        // stage('Webhook Payload') {
-        //     steps {
-        //         script {
-        //             echo "Printing Payload from GitHub Webhook..."
-        //             echo "$env.GITHUB_PAYLOAD"
-        //         }
-        //     }
-        // }
+        stage('Webhook Payload') {
+            steps {
+                script {
+                    echo "Printing Payload from GitHub Webhook..."
+                    echo "$env.WEBHOOK_"
+                }
+            }
+        }
     }
 }
