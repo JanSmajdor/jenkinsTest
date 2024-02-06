@@ -18,12 +18,7 @@ pipeline {
             steps {
                 script {
                     def changes = currentBuild.changeSets
-                    for (changeSet in changes) {
-                        for (entry in changeSet) {
-                            def filePath = entry.path
-                            echo "Changed file: $filePath"
-                        }
-                }
+                    echo "Changes ${changes}"
                 }
             }
         }
