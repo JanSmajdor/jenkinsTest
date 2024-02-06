@@ -17,7 +17,7 @@ pipeline {
         stage('Webhook Payload') {
             steps {
                 script {
-                    e// Access the variable
+                    // Access the variable
                     def githubPayload = env.WEBHOOK_FILEPATH
 
                     // Parse the JSON payload if it's in JSON format
