@@ -22,7 +22,7 @@ pipeline {
                     echo "Parsed Payload: ${filepath}"
 
                     service = filepath.split('/')[0]
-                    echo "Service: ${env.service}"
+                    echo "Service: ${service}"
                 }
             }
         }
