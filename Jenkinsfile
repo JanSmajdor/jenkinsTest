@@ -27,9 +27,10 @@ pipeline {
             }
         }
 
-        stage('Testing Global Variable Value')
+        stage('Testing Global Variable Value') {
             steps {
                 echo "Service: ${service}"
             }
+        }
     }
 }
