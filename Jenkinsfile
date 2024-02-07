@@ -1,4 +1,4 @@
-def service
+def SERVICE
 pipeline {
     agent any
 
@@ -21,16 +21,16 @@ pipeline {
                     def filepath = env.WEBHOOK_FILEPATH
                     echo "Parsed Payload: ${filepath}"
 
-                    service = filepath.split('/')[0]
-                    echo "Service: ${service}"
+                    SERVICE = filepath.split('/')[0]
+                    echo "Service: ${SERVICE}"
                 }
             }
         }
 
         stage('Testing Global Variable Value') {
             steps {
-                echo "Service: ${service}"
-                echo "Waves Branch: ${env.branch}"
+                echo "Service: ${SERVICE}"
+                echo "Waves Branch: ${env.GIT_BRANCH}"
             }
         }
     }
