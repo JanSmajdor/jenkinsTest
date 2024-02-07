@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        service = ''
+    }
+
     options {
         timeout(time: 3, unit: 'MINUTES')
         disableConcurrentBuilds(abortPrevious: true)
@@ -20,8 +24,8 @@ pipeline {
                     def filepath = env.WEBHOOK_FILEPATH
                     echo "Parsed Payload: ${filepath}"
 
-                    def service = filepath.split('/')[0]
-                    echo "Service: ${service}"
+                    env.service = filepath.split('/')[0]
+                    echo "Service: ${env.service}"
                 }
             }
         }
