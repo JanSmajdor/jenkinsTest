@@ -1,9 +1,6 @@
+def service
 pipeline {
     agent any
-
-    environment {
-        service = ''
-    }
 
     options {
         timeout(time: 3, unit: 'MINUTES')
@@ -24,7 +21,7 @@ pipeline {
                     def filepath = env.WEBHOOK_FILEPATH
                     echo "Parsed Payload: ${filepath}"
 
-                    env.service = filepath.split('/')[0]
+                    service = filepath.split('/')[0]
                     echo "Service: ${env.service}"
                 }
             }
