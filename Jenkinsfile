@@ -30,6 +30,7 @@ pipeline {
         stage('Testing Global Variable Value') {
             steps {
                 echo "Service: ${service}"
+                echo "Waves Branch: ${env.branch}"
             }
         }
     }
