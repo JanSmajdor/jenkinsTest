@@ -14,12 +14,14 @@ pipeline {
             }
         }
 
-        stage('Webhook Payload') {
+        stage('Environment Setup from Webhook Payload') {
             steps {
                 script {
                     def filepath = env.WEBHOOK_FILEPATH
-                    // Use the parsed data
                     echo "Parsed Payload: ${filepath}"
+
+                    def service = filepath.split('/')[0]
+                    echo "Service: ${service}"
                 }
             }
         }
