@@ -26,5 +26,33 @@ pipeline {
                 }
             }
         }
+
+        stage('Trigger AnsibleTower') {
+            try {
+                ansibleTower(
+                    towerServer: 'AnsibleTower',
+                    towerCredentialsId: 'AnsibleAutomationStagingDeploy',
+                    templateType: 'job',
+                    jobTemplate: 'Automation - Deploy to Staging account [Mono Repo]',
+                    towerLogLevel: 'full',
+                    inventory: '',
+                    jobTags: '',
+                    skipJobTags: '',
+                    limit: '',
+                    removeColor: false,
+                    verbose: true,
+                    credential: '',
+                    extraVars: """---
+                        SERVICE: '${SERVICE}'
+                        WAVES_BRANCH: '${env.GITHUB_BRANCH}'
+                        UPDATE_ENVS: 'true'
+                    """,
+                    async: false
+                )
+                deleteDir()
+            } catch (Exception err) {
+                println("Trigger AnsibleTower Stage Exception Message: ${err}")
+            }
+        }
     }
 }
