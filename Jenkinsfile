@@ -15,6 +15,7 @@ pipeline {
                 script {
                     try {
                         def filepath = env.WEBHOOK_FILEPATH
+                        echo "Filepath: ${filepath}"
                     
                         SERVICE = filepath.split('/')[0]
                         echo "Service: ${SERVICE}"
